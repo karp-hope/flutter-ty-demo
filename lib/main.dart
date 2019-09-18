@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_ty_demo/network.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_ty_demo/hopetabs.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    home: Network(),
+    home: HopeTabs(),
     );
   }
 }

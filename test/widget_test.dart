@@ -21,12 +21,6 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('AAA'), findsOneWidget);
-    expect(find.text('BBB'), findsNothing);
-    expect(find.text('CCC'), findsNothing);
-    expect(find.text('DDD'), findsNothing);
-
 //    // Tap the '+' icon and trigger a frame.
 //    await tester.tap(find.byIcon(Icons.add));
 //    await tester.pump();
