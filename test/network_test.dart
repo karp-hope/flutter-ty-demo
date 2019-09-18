@@ -25,6 +25,12 @@ void main(){
           home: Network()
       ));
       await tester.pumpWidget(testWidget);
+
+      expect(find.text('AAA'), findsOneWidget);
+      expect(find.text('BBB'), findsNothing);
+      expect(find.text('CCC'), findsNothing);
+      expect(find.text('DDD'), findsNothing);
+      
     });
   });
 

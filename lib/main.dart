@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ty_demo/network.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 //      这里的title用于我们在查看最近的存在于内存中的app的时候，显示在app上面的
-      title: 'Flutter Demo',
+      title: 'hope flutter Demo',
 //      自定义任何的颜色和样式给任何的子组件
       theme: ThemeData(
         // This is the theme of your application.
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    home: Network(),
     );
   }
 }
