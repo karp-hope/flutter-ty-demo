@@ -4,7 +4,10 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_ty_demo/tabs/errortab.dart';
 import 'package:flutter_ty_demo/tabs/network.dart';
+
+import 'tabs/webviewhope.dart';
 
 class HopeTabs extends StatefulWidget{
   @override
@@ -54,15 +57,11 @@ class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin{
           child: SafeArea(
             child: new TabBarView(children: [
               new Network(),
-              new Center(
-                  child: new Text('BBB')
-              ),
+              new WebViewExample(),
               new Center(
                   child: new Text('CCC')
               ),
-              new Center(
-                  child: new Text('DDD')
-              ),
+              new ErrorTab(),
             ],
               controller: tabController,
             ),
@@ -76,15 +75,19 @@ class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin{
         child: new TabBar(tabs: <Tab>[
           new Tab(
             icon: new Icon(Icons.network_wifi),
+            text: '网络',
           ),
           new Tab(
             icon: new Icon(Icons.web_asset),
+            text: 'webview',
           ),
           new Tab(
             icon: new Icon(Icons.block),
+            text: '卡顿',
           ),
           new Tab(
             icon: new Icon(Icons.error),
+            text: '错误',
           )
         ],
           controller: tabController,
