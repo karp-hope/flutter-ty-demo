@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ty_demo/tabs/errortab.dart';
 import 'package:flutter_ty_demo/tabs/network.dart';
+import 'package:flutter_ty_demo/tabs/pagetab.dart';
 
 import 'tabs/webviewhope.dart';
 
@@ -58,9 +59,7 @@ class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin{
             child: new TabBarView(children: [
               new Network(),
               new WebViewExample(),
-              new Center(
-                  child: new Text('CCC')
-              ),
+              new PageJump(),
               new ErrorTab(),
             ],
               controller: tabController,

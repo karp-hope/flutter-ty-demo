@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ty_demo/hopetabs.dart';
+import 'package:flutter_ty_demo/tabs/page/pagea.dart';
+import 'package:flutter_ty_demo/tabs/page/pageb.dart';
+import 'package:flutter_ty_demo/tabs/page/pagec.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +30,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    home: HopeTabs(),
+      home: HopeTabs(),
+
+//      在MaterialApp中添加路由（非MaterialApp添加方式不太一样了）
+      routes: <String, WidgetBuilder>{
+        PageA.routeName: (BuildContext context) => PageA(),
+        PageB.routeName: (BuildContext context) => PageB(),
+        PageC.routeName: (BuildContext context) => PageC(),
+      },
     );
   }
 }
