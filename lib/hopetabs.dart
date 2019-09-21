@@ -16,7 +16,7 @@ class HopeTabs extends StatefulWidget{
 }
 
 //SingleTickerProviderStateMixin被TabController用作切换时候的动画，vsync这里需要填入
-class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin{
+class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin, WidgetsBindingObserver{
 //  tabcontroller用于保持选择的tab和content部分保持同步的处理
   TabController tabController;
 
@@ -29,9 +29,12 @@ class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin{
     super.initState();
 //初始化tabController
     tabController = new TabController(length: num, vsync: this);
-    print('network initState');
+
     //debugPrint7用来打印大量的内容.另外在logcat中的log为flutter为tag的，也在那里显示
     debugPrint('network initState debugPrint');
+
+    WidgetsBinding.instance.addObserver(this);
+    print('hopetab initState');
   }
 
 //  当state不需要的时候，会被调用，这里执行clean的操作
@@ -40,7 +43,25 @@ class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin{
     // TODO: implement dispose
     tabController.dispose();
     print('network dispose');
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    print('didChangeAppLifecycleState');
+//    super.didChangeAppLifecycleState(state);
+
+    if(state == AppLifecycleState.inactive){
+      print('state == AppLifecycleState.inactive in hometabs');
+    }else if(state == AppLifecycleState.paused){
+      print('state == AppLifecycleState.paused in hometabs');
+    }else if(state == AppLifecycleState.resumed){
+      print('state == AppLifecycleState.resumed in hometabs');
+    }else if(state == AppLifecycleState.suspending){
+      print('state == AppLifecycleState.suspending in hometabs');
+    }
   }
 
 

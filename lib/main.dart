@@ -1,13 +1,41 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_ty_demo/errorhandler.dart';
 import 'package:flutter_ty_demo/hopetabs.dart';
 import 'package:flutter_ty_demo/tabs/page/pagea.dart';
 import 'package:flutter_ty_demo/tabs/page/pageb.dart';
 import 'package:flutter_ty_demo/tabs/page/pagec.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(MyApp());
+void main() {
+
+
+
+
+
+  runZoned<Future<void>>(() async {
+    runApp(MyApp());
+  }, onError: (error, stackTrace) {
+    // Whenever an error occurs, call the `_reportError` function. This sends
+    // Dart errors to the dev console or Sentry depending on the environment.
+//    _reportError(error, stackTrace);
+    print("onError: $error");
+    CrashCatchHandle handler = CrashCatchHandle();
+        handler.reportError(error, stackTrace);
+  });
+
+  FlutterError.onError = (FlutterErrorDetails details) {
+    print("***************************");
+    print("details: ${details.exception}");
+    print("details: ${details.stack}");
+    print("***************************");
+  };
+
+//  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
