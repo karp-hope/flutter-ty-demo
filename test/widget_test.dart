@@ -9,6 +9,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_ty_demo/hopetabs.dart';
 
 import 'package:flutter_ty_demo/main.dart';
 
@@ -27,8 +28,8 @@ void main() {
 //
 //    // Verify that our counter has incremented.
 //    expect(find.text('0'), findsNothing);
-//    expect(find.text('1'), findsOneWidget);
-    debugPrint('demo test in testWidgets');
+    //说明找到了HopeTab这个widget，而且找到的个数是1
+    expect(find.byType(HopeTabs), findsOneWidget);
   });
 
 //  testWidgets('Counter increments smoke test', (WidgetTester tester) async {

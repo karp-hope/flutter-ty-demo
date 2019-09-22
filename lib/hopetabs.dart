@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_ty_demo/stringutil.dart';
 import 'package:flutter_ty_demo/tabs/errortab.dart';
 import 'package:flutter_ty_demo/tabs/network.dart';
 import 'package:flutter_ty_demo/tabs/pagetab.dart';
@@ -95,19 +96,19 @@ class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin,
         child: new TabBar(tabs: <Tab>[
           new Tab(
             icon: new Icon(Icons.network_wifi),
-            text: '网络',
+            text: StringUtil.networkStr,
           ),
           new Tab(
             icon: new Icon(Icons.web_asset),
-            text: 'webview',
+            text: StringUtil.webviewStr,
           ),
           new Tab(
             icon: new Icon(Icons.block),
-            text: '卡顿',
+            text: StringUtil.blockStr,
           ),
           new Tab(
             icon: new Icon(Icons.error),
-            text: '错误',
+            text: StringUtil.errorStr,
           )
         ],
           controller: tabController,

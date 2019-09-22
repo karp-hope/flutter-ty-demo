@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_ty_demo/hopetabs.dart';
+import 'package:flutter_ty_demo/stringutil.dart';
 
 void main(){
   test('test network', (){
@@ -26,10 +27,14 @@ void main(){
       ));
       await tester.pumpWidget(testWidget);
 
-//      expect(find.text('AAA'), findsOneWidget);
-//      expect(find.text('BBB'), findsNothing);
-//      expect(find.text('CCC'), findsNothing);
-//      expect(find.text('DDD'), findsNothing);
+      expect(find.text(StringUtil.networkStr), findsOneWidget);
+      expect(find.text(StringUtil.webviewStr), findsOneWidget);
+      expect(find.text(StringUtil.blockStr), findsOneWidget);
+      expect(find.text(StringUtil.errorStr), findsOneWidget);
+
+      expect(find.text('BBB'), findsNothing);
+      expect(find.text('CCC'), findsNothing);
+      expect(find.text('DDD'), findsNothing);
       
     });
   });
