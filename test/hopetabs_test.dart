@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_ty_demo/hopetabs.dart';
 import 'package:flutter_ty_demo/stringutil.dart';
 
+import 'helper.dart';
+
 void main(){
   test('test network', (){
     
@@ -21,10 +23,11 @@ void main(){
     testWidgets('test network widget', (WidgetTester tester) async {
 //    await tester.pumpWidget(createWidgetForTest(child: Network()));
 
-      Widget testWidget = new MediaQuery(
-          data: new MediaQueryData(), child: MaterialApp(
-          home: HopeTabs()
-      ));
+//      Widget testWidget = new MediaQuery(
+//          data: new MediaQueryData(), child: MaterialApp(
+//          home: HopeTabs()
+//      ));
+      Widget testWidget = Helper.createMediaQueryWidget(HopeTabs());
       await tester.pumpWidget(testWidget);
 
       expect(find.text(StringUtil.networkStr), findsOneWidget);

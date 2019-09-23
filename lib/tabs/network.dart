@@ -17,19 +17,35 @@ enum LibType{
 
 class NetworkState extends State<Network>{
 
-  LibType selectLib;
+  LibType _selectLib;
 
-  Widget createSelectItem(String libName){
+  _setIconColor(LibType selectlib){
+    if(_selectLib != selectlib){
+      return Colors.grey;
+    }else{
+      return Colors.blue;
+    }
+  }
+
+  Widget createSelectItem(String libName, {LibType selectlib}){
     return new Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Expanded(
           flex: 2,
-          child : new Text(libName),
+          child : new Text(libName, style: TextStyle(fontSize: 20),),
         ),
         Expanded(
-            flex: 1,
-            child : new Icon(Icons.check, color: Colors.grey,)
+          flex: 1,
+          child: new GestureDetector(
+            child: new Icon(Icons.check, color: _setIconColor(selectlib), size: 28,),
+            onTap: () {
+              setState(() {
+                _selectLib = selectlib;
+              });
+
+            },
+          ),
         ),
       ],
     );
@@ -84,14 +100,13 @@ class NetworkState extends State<Network>{
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-//        child: SafeArea(
           child: new Column(
 //          text从左还是右开始显示
             textDirection: TextDirection.ltr,
             children: <Widget>[
               createTag('请选择网络库'),
-              createSelectItem('dio 库'),
-              createSelectItem('http 库'),
+              createSelectItem('dio 库', selectlib: LibType.dioLib),
+              createSelectItem('http 库', selectlib: LibType.httpLib),
               createTag('请选择协议'),
               createSelectItem('HTTP'),
               createSelectItem('HTTPS'),
@@ -102,7 +117,6 @@ class NetworkState extends State<Network>{
 
           ),
         )
-//      ),
     );
   }
 }
