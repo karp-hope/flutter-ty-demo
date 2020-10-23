@@ -58,8 +58,8 @@ class PageAState extends State<PageA> with WidgetsBindingObserver{
       print('state == AppLifecycleState.paused in pageA');
     }else if(state == AppLifecycleState.resumed){
       print('state == AppLifecycleState.resumed in pageA');
-    }else if(state == AppLifecycleState.suspending){
-      print('state == AppLifecycleState.suspending in pageA');
+    // }else if(state == AppLifecycleState.suspending){
+    //   print('state == AppLifecycleState.suspending in pageA');
     }
   }
 

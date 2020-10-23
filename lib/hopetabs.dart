@@ -60,8 +60,8 @@ class HopeTabsState extends State<HopeTabs> with SingleTickerProviderStateMixin,
       print('state == AppLifecycleState.paused in hometabs');
     }else if(state == AppLifecycleState.resumed){
       print('state == AppLifecycleState.resumed in hometabs');
-    }else if(state == AppLifecycleState.suspending){
-      print('state == AppLifecycleState.suspending in hometabs');
+    // }else if(state == AppLifecycleState.suspending){
+    //   print('state == AppLifecycleState.suspending in hometabs');
     }
   }
 
