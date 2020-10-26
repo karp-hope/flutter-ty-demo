@@ -9,6 +9,8 @@ import 'package:flutter_ty_demo/tabs/page/pagea.dart';
 import 'package:flutter_ty_demo/tabs/page/pageb.dart';
 import 'package:flutter_ty_demo/tabs/page/pagec.dart';
 
+import 'package:flutter_uxcam/flutter_uxcam.dart';
+
 //void main() => runApp(MyApp());
 void main() {
 
@@ -41,6 +43,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    FlutterUxcam.optIntoSchematicRecordings();
+    //madb1h6h1hetwfh
+    FlutterUxcam.startWithKey("madb1h6h1hetwfh");
+
     return MaterialApp(
 //      这里的title用于我们在查看最近的存在于内存中的app的时候，显示在app上面的
       title: 'hope flutter Demo',
